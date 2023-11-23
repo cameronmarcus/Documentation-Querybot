@@ -37,10 +37,10 @@ def main():
 
     index = index_create(input("Enter Filepath to documentation: ").strip('"'))
     query_engine = index.as_query_engine(streaming=False)
-    company = query_engine.query("What is the name of this documentation? Give me the name of just the documentation and nothing else")
+    docs = query_engine.query("What is the name of this documentation? Give me the name of just the documentation and nothing else")
 
     while(True):
-        query = input(f"Enter question regarding the {company} (Enter 'q' to quit): ")
+        query = input(f"Enter question regarding the {docs} (Enter 'q' to quit): ")
         if query == "q":
             return
         response = query_engine.query(query)
